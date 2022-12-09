@@ -1,16 +1,19 @@
+<!DOCTYPE html>
 <head>
     <script src="require.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
         
-        body{
+
+        body{ 
             background-color: #7b4a42;
             display: flex;
             justify-content: center;
         }
 
         .background{
-            position: absolute;
+            position: fixed;
+            margin-top: 30%;
             opacity: 50%;
             z-index: -1;
             background-color: #634439;
@@ -113,6 +116,88 @@
         #clickButton.pop{
             color: #7b4a42;  
         }
+        @media screen and (max-width: 5000px) {
+
+            .background{
+                position: fixed;
+                margin: auto;
+                width: 90vw;
+                height: 90vw;
+            }
+
+            .header{
+                font-size: 5vh;
+                padding: 0vh 10vh 0px;
+                height: 50vh;
+                width: 70vw;
+                margin-top: 30%;
+            }
+
+            .clickButton{
+                font-size: 5vh;
+                font-weight: bold;
+            }
+
+        @media screen and (max-width: 1300px) {
+
+            .background{
+                position: fixed;
+                margin: auto;
+                width: 90vw;
+                height: 90vw;
+            }
+
+            .header{
+                font-size: 5vw;
+                padding: 0vh 10vh 0px;
+                height: 50vh;
+                width: 70vw;
+                margin-top: 30%;
+            }
+
+            .clickButton{
+                font-size: 5vw;
+                font-weight: bold;
+            }
+
+        @media screen and (max-width: 1000px) {
+
+            .background{
+                position: fixed;
+                margin: auto;
+                width: 90vw;
+                height: 90vw;
+            }
+
+            .header{
+                font-size: 8vw;
+                padding: 0vh 10vh 0px;
+                height: 50vh;
+                width: 70vw;
+                margin-top: 30%;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+
+            .background{
+                position: fixed;
+                margin: auto;
+                margin-top: 30%;
+                width: 90vw;
+                height: 90vw;
+            }
+
+            .header{
+                font-size: 8vw;
+                padding: 0vh 10vh 0px;
+                height: 50vh;
+                width: 70vw;
+                margin-top: 50%;
+            }
+        }
+
+        
 
     </style>
 </head>
