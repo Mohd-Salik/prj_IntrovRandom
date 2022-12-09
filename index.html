@@ -14,8 +14,8 @@
             opacity: 50%;
             z-index: -1;
             background-color: #634439;
-            width: 90%;
-            height: 90%;
+            width: 90vw;
+            height: 90vw;
             animation: rotating 30s infinite;
             transition: all 0.5s ease;
             clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
@@ -68,16 +68,16 @@
         .header{
             font-family: 'Be Vietnam Pro', sans-serif;
             font-weight: bold;
-            font-size: 8vw;
+            font-size: 7vw;
             padding: 0vh 10vh 0px;
             height: 50vh;
-            width: 70vh;
+            width: 70vw;
 
             color: white;
 
             text-align: center;
             
-            text-shadow: 1px 1px 2px #e2997c, 0 0 25px rgb(85, 10, 10), 0 0 5px rgb(83, 22, 3);
+            text-shadow: 5px 2px 30px #000000, 0 0 25px rgb(85, 10, 10), 0 0 5px rgb(83, 22, 3);
             
             transition: opacity 0.5s ease;
         }
@@ -90,13 +90,16 @@
             font-size: 5vw;
             font-weight: bold;
 
-            box-shadow: 2px 5px;
+            position: fixed;
+            bottom: 5%;
+
+            box-shadow: 0px 5px 10px #482523;
             background-color:#482523;
             color: #a86f5a;
             
             width: 50%;
             border-width: 2px;
-            border-color: rgb(245, 222, 179);
+            border-color: rgba(245, 222, 179, 0.123);
             border-radius:100px;
             transition: all 0.3s ease;
 
@@ -117,9 +120,9 @@
 <body>
     <div class="background" id="background"></div>
     <div class="container">
-        <h1 class="header" id="header">Need a topic? Generate a question.</h1> 
-        <button class="clickButton" id="clickButton" onclick=randomize();> GENERATE</button>
+        <h1 class="header" id="header">Need a topic? Generate a question.</h1>
     </div>
+    <button class="clickButton" id="clickButton" onclick=randomize();> GENERATE</button>
         
 <script>
 
