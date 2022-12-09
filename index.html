@@ -4,27 +4,28 @@
         @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
         
         body{
-            background-color: brown;
+            background-color: #7b4a42;
+            margin-top: 10vh;
         }
         
         .container{
-            margin-top: 25vh;
             display: flex;
-            align-items: center;
-            flex-direction: column;
             justify-content: center;
         }
 
         .header{
-            text-align: center;
             font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: bold;
             font-size: 10vh;
-            color: white;
-            transition: opacity 0.5s ease;
-        }
+            padding: 5vh 10vh 0px;
 
-        #header.fadeInOpacity {
-            opacity: 100;
+            color: white;
+
+            text-align: center;
+            
+            text-shadow: 1px 1px 2px #e2997c, 0 0 25px rgb(85, 10, 10), 0 0 5px rgb(83, 22, 3);
+            
+            transition: opacity 0.5s ease;
         }
 
         #header.fadeOutOpacity {
@@ -32,22 +33,30 @@
         }
 
         .clickButton{
-            text-align: center;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            font-weight: bold;
+            width: 35%;
             font-size: 5vh;
-            padding: 5vh;
-            width: 30vh;
-            background-color:#852215;
-            color: rgb(92, 20, 20);
-            border:none;
+            font-weight: bold;
+
+            background-color:#482523;
+            color: #a86f5a;
+
+            text-align: center;
+            
+            border: none;
             border-radius:50px;
             transition: all 0.3s ease;
+
+            position: fixed;
+
         }
 
         .clickButton:hover{
-            background-color:rgb(92, 20, 20); 
-            color: #852215;  
+            background-color:#e2997c; 
+            color: #482523;  
+        }
+
+        #clickButton.pop{
+            color: #a86f5a;  
         }
 
     </style>
@@ -55,8 +64,9 @@
 
 <body>
     <div class="container">
-        <h1 class="header" id="header">Need a topic? Generate a question.</h1>
-        <button class="clickButton" onclick=randomize();> ASK</button>
+        <button class="clickButton" id="clickButton" onclick=randomize();> GENERATE</button>
+        <h1 class="header" id="header">Need a topic? Generate a question.</h1> 
+        
     </div>
         
 <script>
@@ -265,11 +275,20 @@ const questions = [
 "If you had an unlimited budget, what epic prank would you pull?"
 ]
 
+const header = document.getElementById('header'); 
+const button = document.getElementById('clickButton');
+
 function randomize(){
-        var text = document.getElementById('header');
-        text.classList.toggle("fadeOutOpacity");
+        
+
         var question = questions[Math.floor(Math.random()*questions.length)];
-        text.textContent = question; 
+        button.classList.toggle("pop");
+        header.classList.toggle("fadeOutOpacity");
+        setTimeout(function(){
+            header.textContent = question;
+            header.classList.toggle("fadeOutOpacity");
+            button.classList.toggle("pop");
+        }, 500);
         
 }
 </script>
