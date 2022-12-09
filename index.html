@@ -5,19 +5,73 @@
         
         body{
             background-color: #7b4a42;
-            margin-top: 10vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .background{
+            position: absolute;
+            opacity: 50%;
+            z-index: -1;
+            background-color: #634439;
+            width: 100vh;
+            height: 100vh;
+            animation: rotating 30s infinite;
+            transition: all 0.5s ease;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+
+        #background.pushrotate{
+            animation: pushrotating 2s infinite;
+        }
+
+        @keyframes rotating {
+            from {
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -ms-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pushrotating {
+            from {
+                -ms-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            to {
+                -ms-transform: rotate(720deg);
+                -moz-transform: rotate(720deg);
+                -webkit-transform: rotate(720deg);
+                -o-transform: rotate(720deg);
+                transform: rotate(720deg);
+            }
         }
         
         .container{
             display: flex;
+            flex-direction: column;
             justify-content: center;
         }
 
         .header{
             font-family: 'Be Vietnam Pro', sans-serif;
             font-weight: bold;
-            font-size: 10vh;
+            font-size: 8vh;
             padding: 5vh 10vh 0px;
+            height: 70vh;
+            width: 70vh;
 
             color: white;
 
@@ -46,8 +100,6 @@
             border-radius:50px;
             transition: all 0.3s ease;
 
-            position: fixed;
-
         }
 
         .clickButton:hover{
@@ -56,17 +108,17 @@
         }
 
         #clickButton.pop{
-            color: #a86f5a;  
+            color: #7b4a42;  
         }
 
     </style>
 </head>
 
 <body>
+    <div class="background" id="background"></div>
     <div class="container">
-        <button class="clickButton" id="clickButton" onclick=randomize();> GENERATE</button>
         <h1 class="header" id="header">Need a topic? Generate a question.</h1> 
-        
+        <button class="clickButton" id="clickButton" onclick=randomize();> GENERATE</button>
     </div>
         
 <script>
@@ -277,6 +329,9 @@ const questions = [
 
 const header = document.getElementById('header'); 
 const button = document.getElementById('clickButton');
+const background = document.getElementById('background');
+
+// background.style.clipPath = 
 
 function randomize(){
         
@@ -284,10 +339,12 @@ function randomize(){
         var question = questions[Math.floor(Math.random()*questions.length)];
         button.classList.toggle("pop");
         header.classList.toggle("fadeOutOpacity");
+        background.classList.toggle("pushrotate");
         setTimeout(function(){
             header.textContent = question;
             header.classList.toggle("fadeOutOpacity");
             button.classList.toggle("pop");
+            background.classList.toggle("pushrotate");
         }, 500);
         
 }
